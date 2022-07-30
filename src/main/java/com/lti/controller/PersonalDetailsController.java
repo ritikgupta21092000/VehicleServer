@@ -26,7 +26,7 @@ public class PersonalDetailsController {
 		return personalDetailsService.addPersonalDetails(personalDetails);
 	}
 	
-	//http://localhost:9090/personalDetails/addpersonalDetailsbyid/
+	//http://localhost:9090/personalDetails/searchPersonalDetailsbyid/2001
 	@RequestMapping(value = "/searchPersonalDetailsbyid/{applicantId}")
 	@ResponseBody
 	public PersonalDetails searchPersonaldetailsById(@PathVariable int applicantId) {
