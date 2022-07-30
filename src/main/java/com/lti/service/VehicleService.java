@@ -1,11 +1,12 @@
 package com.lti.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.lti.entity.Vehicles;
 
 public interface VehicleService {
-	Vehicles addVehicle(Vehicles vehicles);
+	HashMap<String, Integer> addVehicle(Vehicles vehicles);
 	List<Vehicles> viewAllVehicle();
 	
 	Vehicles searchVehicleById(int vehicleId);

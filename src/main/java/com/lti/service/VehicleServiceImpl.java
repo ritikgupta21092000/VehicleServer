@@ -1,5 +1,6 @@
 package com.lti.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,17 @@ public class VehicleServiceImpl implements VehicleService {
 	VehicleDao vehicleDao;
 
 	@Override
-	public Vehicles addVehicle(Vehicles vehicles) {
-		Vehicles vehicles2 = vehicleDao.addVehicle(vehicles);
-		return vehicles2;
+	public HashMap<String, Integer> addVehicle(Vehicles vehicles) {
+		HashMap<String, Integer> vehicleMap = new HashMap<>();
+		try {
+			Vehicles vehicles2 = vehicleDao.addVehicle(vehicles);
+			vehicleMap.put("isInserted", 1);
+			vehicleMap.put("vehicleId", vehicles2.getVehicleId());
+		} catch (Exception e) {
+			vehicleMap.put("isInserted", 0);
+		}
+		
+		return vehicleMap;
 	}
 
 	@Override
