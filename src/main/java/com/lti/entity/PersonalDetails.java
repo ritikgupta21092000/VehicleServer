@@ -29,6 +29,10 @@ public class PersonalDetails {
 	String state;
 	String city;
 	String pincode;
+	String EmploymentType;
+	int annualSalary;
+	int ExistingEMI;
+	
 	
 	@OneToOne
 	@JoinColumn(name = "userId")
@@ -145,5 +149,28 @@ public class PersonalDetails {
 		this.user = user;
 	}
 	
+	public String getEmploymentType() {
+		return EmploymentType;
+	}
+
+	public void setEmploymentType(String employmentType) {
+		EmploymentType = employmentType;
+	}
+
+	public int getAnnualSalary() {
+		return annualSalary;
+	}
+
+	public void setAnnualSalary(int annualSalary) {
+		this.annualSalary = annualSalary;
+	}
+
+	public int getExistingEMI() {
+		return ExistingEMI;
+	}
+
+	public void setExistingEMI(int existingEMI) {
+		ExistingEMI = existingEMI;
+	}
 	
 }
