@@ -21,5 +21,10 @@ public class PersonalDetailsDaoImpl implements PersonalDetailsDao {
 		return personPersisted;
 	}
 	
+	@Override
+	public PersonalDetails findDetailsByApplicantId(int applicantId) {
+		return em.find(PersonalDetails.class, applicantId);
+	}
+	
 
 }

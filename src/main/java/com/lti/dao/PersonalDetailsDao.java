@@ -6,5 +6,6 @@ import com.lti.entity.User;
 public interface PersonalDetailsDao {
 	
 	PersonalDetails addPersonalDetails(PersonalDetails personalDetails);
+	PersonalDetails findDetailsByApplicantId(int applicantId );
 	
 }
