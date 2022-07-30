@@ -14,7 +14,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "vh_personaldetail")
+@Table(name = "vh_personaldetails")
 public class PersonalDetails {
 	@Id
 	@SequenceGenerator(name = "per_seq", initialValue = 2001, allocationSize = 1)
