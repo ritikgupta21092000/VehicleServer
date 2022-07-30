@@ -44,5 +44,11 @@ public class UserDaoImpl implements UserDao {
 		}
 		return userDto;
 	}
+	
+	public User finduserById(int userId) {
+		User user = em.find(User.class, userId);
+		System.out.println(user);
+		return user;
+	}
 
 }
