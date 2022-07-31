@@ -1,5 +1,6 @@
 package com.lti.controller;
 
+import java.util.ArrayList;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class VehicleController {
 	public Vehicles searchVehicleById(@PathVariable int vehicleId) {
 		return vehicleService.searchVehicleById(vehicleId);
 	}
+
 	
 	@RequestMapping(value = "/viewAllVehicles", method = RequestMethod.GET)
 	@ResponseBody
