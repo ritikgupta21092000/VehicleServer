@@ -54,4 +54,12 @@ public class VehicleController {
 	public Vehicles getVehicleById(@PathVariable int vehicleId) {
 		return vehicleService.searchVehicleById(vehicleId);
 	}
+	
+	@RequestMapping(value = "/vehicleMake/{vehicleMake}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Vehicles> getVehiclesByMake(@PathVariable String vehicleMake) {
+		return vehicleService.searchVehicleByMake(vehicleMake);
+	}
 }
+
+

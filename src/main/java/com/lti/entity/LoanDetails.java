@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "vh_loan")
@@ -23,6 +24,9 @@ public class LoanDetails {
 	double rateOfInterest;
 	double emi;
 	
+	@Transient
+	int vehicleId;
+	
 	@ManyToOne
 	@JoinColumn(name="vehicleId")
 	Vehicles vehicles;
@@ -30,6 +34,22 @@ public class LoanDetails {
 	@OneToOne(mappedBy = "loanDetails",cascade = CascadeType.ALL)    //sales and loandetails 1:1
 	Sales sales;
 	
+	public int getVehicleId() {
+		return vehicleId;
+	}
+
+	public void setVehicleId(int vehicleId) {
+		this.vehicleId = vehicleId;
+	}
+
+	public Vehicles getVehicles() {
+		return vehicles;
+	}
+
+	public void setVehicles(Vehicles vehicles) {
+		this.vehicles = vehicles;
+	}
+
 	public Sales getSales() {
 		return sales;
 	}
