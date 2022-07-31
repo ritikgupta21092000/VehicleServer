@@ -16,6 +16,8 @@ import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "vh_vehicles")
 public class Vehicles {
@@ -41,6 +43,7 @@ public class Vehicles {
 	//Sales sales;
 	List<Sales> sales;
 
+	@JsonIgnore
 	public List<Sales> getSales() {
 		return sales;
 	}
@@ -129,6 +132,7 @@ public class Vehicles {
 		this.carImageUrl = carImageUrl;
 	}
 
+	@JsonIgnore
 	public List<LoanDetails> getLoanDetails() {
 		return loanDetails;
 	}
