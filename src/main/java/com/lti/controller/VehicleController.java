@@ -1,5 +1,8 @@
 package com.lti.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,16 +22,24 @@ public class VehicleController {
 	
 	@Autowired
 	VehicleService vehicleService;
-	
+	//http://localhost:9090/vehicles/addVehicle
 	@RequestMapping(value = "/addVehicle", method = RequestMethod.POST)
 	@ResponseBody
 	public Vehicles addVehicle(@RequestBody Vehicles vehicles) {
 		return vehicleService.addVehicle(vehicles);
 	}
-	
+	//http://localhost:9090/vehicles/searchVehicle/3001
 	@RequestMapping(value = "/searchVehicle/{vehicleId}")
 	@ResponseBody
 	public Vehicles searchVehicleById(@PathVariable int vehicleId) {
 		return vehicleService.searchVehicleById(vehicleId);
 	}
+	//http://localhost:9090/vehicles/viewAllVehicles
+	@RequestMapping(value = "/viewAllVehicles", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Vehicles> getAllVehicles() {
+        List<Vehicles> vehicles = new ArrayList<>();
+        vehicles = vehicleService.viewAllVehicle();
+        return vehicles;
+    }
 }
