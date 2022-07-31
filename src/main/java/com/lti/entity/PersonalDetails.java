@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "vh_personaldetails")
@@ -22,18 +23,27 @@ public class PersonalDetails {
 	int applicantId;
 	String firstName;
 	int age;
-	String gender;
 	String mobileNo;
 	String email;
 	String address;
 	String state;
 	String city;
 	String pincode;
-	String EmploymentType;
+	String employmentType;
 	int annualSalary;
-	int ExistingEMI;
+	int existingEmi;
 	
+	@Transient
+	int userId;
 	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 	@OneToOne
 	@JoinColumn(name = "userId")
 	User user;
@@ -83,14 +93,6 @@ public class PersonalDetails {
 
 	public void setAge(int age) {
 		this.age = age;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
 	}
 
 	public String getMobileNo() {
@@ -150,11 +152,11 @@ public class PersonalDetails {
 	}
 	
 	public String getEmploymentType() {
-		return EmploymentType;
+		return employmentType;
 	}
 
 	public void setEmploymentType(String employmentType) {
-		EmploymentType = employmentType;
+		this.employmentType = employmentType;
 	}
 
 	public int getAnnualSalary() {
@@ -165,12 +167,12 @@ public class PersonalDetails {
 		this.annualSalary = annualSalary;
 	}
 
-	public int getExistingEMI() {
-		return ExistingEMI;
+	public int getExistingEmi() {
+		return existingEmi;
 	}
 
-	public void setExistingEMI(int existingEMI) {
-		ExistingEMI = existingEMI;
+	public void setExistingEmi(int existingEMI) {
+		existingEmi = existingEMI;
 	}
 	
 }

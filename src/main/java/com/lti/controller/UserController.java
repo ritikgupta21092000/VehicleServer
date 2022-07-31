@@ -42,6 +42,7 @@ public class UserController {
 			map.put("mobileNo", userDto.getUser().getMobileNo());
 			map.put("firstName", userDto.getUser().getFirstName());
 			map.put("ValidUser", "true");
+			map.put("userId", Integer.toString(userDto.getUser().getUserId()));
 			if (userDto.isAdmin() == true) {
 				map.put("isAdmin", "true");
 			} else {

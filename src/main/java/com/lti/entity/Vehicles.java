@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +12,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "vh_vehicles")
@@ -29,7 +33,7 @@ public class Vehicles {
 	String engineSize;
 	String fuelTank;
 	String carImageUrl;
-	
+
 	@OneToMany(mappedBy = "vehicles",cascade = CascadeType.ALL)
 	List<LoanDetails> loanDetails;
 	
