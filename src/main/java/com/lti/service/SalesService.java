@@ -6,6 +6,6 @@ import com.lti.dto.SalesDto;
 import com.lti.entity.Sales;
 
 public interface SalesService {
-	 List<Sales> displaySales();
+	 List<SalesDto> displaySales();
 
 }

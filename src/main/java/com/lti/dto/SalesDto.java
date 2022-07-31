@@ -2,7 +2,9 @@ package com.lti.dto;
 
 public class SalesDto {
 	int salesId;
-//	int loanId;
+	int loanId;
+	int applicantId;
+	int documentId;
 //	
 //	String firstName;
 //	String lastName;
@@ -16,17 +18,42 @@ public class SalesDto {
 //	int loanTenure;
 //	double rateOfInterest;
 //	double emi;
+	
+	
 
 	public int getSalesId() {
 		return salesId;
 	}
 
+	public int getDocumentId() {
+		return documentId;
+	}
+
+	public void setDocumentId(int documentId) {
+		this.documentId = documentId;
+	}
+
 	public void setSalesId(int salesId) {
 		this.salesId = salesId;
 	}
-	
-	
-//	public int getLoanTenure() {
+
+	public int getApplicantId() {
+		return applicantId;
+	}
+
+	public void setApplicantId(int applicantId) {
+		this.applicantId = applicantId;
+	}
+
+	public int getLoanId() {
+		return loanId;
+	}
+
+	public void setLoanId(int loanId) {
+		this.loanId = loanId;
+	}
+
+	// public int getLoanTenure() {
 //		return loanTenure;
 //	}
 //	public void setLoanTenure(int loanTenure) {
@@ -112,11 +139,5 @@ public class SalesDto {
 //	public void setSalesId(int salesId) {
 //		this.salesId = salesId;
 //	}
-//	public int getLoanId() {
-//		return loanId;
-//	}
-//	public void setLoanId(int loanId) {
-//		this.loanId = loanId;
-//	}
-	
+
 }

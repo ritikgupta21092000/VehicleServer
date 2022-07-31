@@ -16,7 +16,7 @@ public class SalesServiceImpl implements SalesService {
 	SalesDao salesDao;
 
 	@Override
-	public List<Sales> displaySales() {
+	public List<SalesDto> displaySales() {
 		return salesDao.displaySales();
 	}
 

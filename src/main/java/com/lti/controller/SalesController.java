@@ -23,7 +23,7 @@ public class SalesController {
 	//http://localhost:9090/sales/displaySales
 	@RequestMapping(value = "/displaySales", method = RequestMethod.GET)
 	@ResponseBody
-	 public List<Sales> displaySales(){
+	 public List<SalesDto> displaySales(){
 		
 		return salesService.displaySales();
 	}

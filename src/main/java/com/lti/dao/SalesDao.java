@@ -7,5 +7,5 @@ import com.lti.entity.Sales;
 
 public interface SalesDao {
 	
-	List<Sales> displaySales();
+	List<SalesDto> displaySales();
 }
