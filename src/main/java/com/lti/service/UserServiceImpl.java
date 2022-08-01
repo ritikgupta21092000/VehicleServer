@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 
 	public int forgotPassword(int userId, String password) {
 		return userDao.forgotPassword(userId, password);
-		
+	}
 		
 
 	@Override
