@@ -56,7 +56,8 @@ public class SalesServiceImpl implements SalesService {
 		String fullName = personalDetails.getUser().getFirstName() + " " + personalDetails.getUser().getLastName();
 		String subject = "Update Regarding Loan!";
 		String text;
-		if (status == "approved") {
+		System.out.println(status);
+		if (status.equals("approved")) {
 			text = "Congratulations!" + fullName + "\n\n Your Loan is Approved Successfully";
 		} else {
 			text = "Dear " + fullName + "\n\n Your Loan Application is Rejected.\n\n Reason: " + message;
