@@ -31,6 +31,12 @@ public class UserServiceImpl implements UserService {
 		return userDto;
 	}
 
+
+	public int forgotPassword(int userId, String password) {
+		return userDao.forgotPassword(userId, password);
+		
+		
+
 	@Override
 	public boolean checkUserId(int userId, String email) {
 		User user = userDao.findByUserIdAndEmail(userId, email);
@@ -43,6 +49,7 @@ public class UserServiceImpl implements UserService {
 			System.out.println("Email Sent.");
 			return true;
 		}
+
 	}
 
 }

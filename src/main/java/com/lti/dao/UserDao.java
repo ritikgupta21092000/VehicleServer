@@ -7,6 +7,9 @@ public interface UserDao {
 	User register(User user);
 	UserDto login(User user);
 	User  finduserById (int userId);
+
+	int forgotPassword(int userId,String password);
 	
 	User findByUserIdAndEmail(int userid, String email);
+
 }

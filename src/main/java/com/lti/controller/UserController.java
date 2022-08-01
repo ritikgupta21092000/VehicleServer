@@ -52,11 +52,21 @@ public class UserController {
 		}
 		return map;
 	}
+  
+	//http://localhost:9090/users/forgotPassword
+	@RequestMapping(value = "/forgotPassword/{userId}/{password}", method = RequestMethod.GET)
+	@ResponseBody
+	public int forgotPassword(@PathVariable int userId, @PathVariable String password) {
+		System.out.println(userId);
+		return userService.forgotPassword(userId, password);
+			
+
 	
 	@RequestMapping(value = "/checkUserId/{userId}/{email}", method = RequestMethod.GET)
 	@ResponseBody
 	public boolean checkUserId(@PathVariable int userId, @PathVariable String email) {
 		return userService.checkUserId(userId, email);
+
 	}
 
 }
