@@ -65,4 +65,10 @@ public class SalesController {
 	public List<SalesDto> getUserRejectedApplications(@PathVariable int userId){
 		return salesService.userRejectedApplications(userId);
 	}
+	
+	@RequestMapping(value = "/emiScheduler/{userId}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<SalesDto> getEmi(@PathVariable int userId){
+		return salesService.findEmi(userId);
+	}
 }

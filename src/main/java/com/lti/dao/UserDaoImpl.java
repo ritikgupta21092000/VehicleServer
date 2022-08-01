@@ -51,4 +51,18 @@ public class UserDaoImpl implements UserDao {
 		return user;
 	}
 
+	@Override
+	public User findByUserIdAndEmail(int userid, String email) {
+		String jpql = "select u from User u where u.userId =: uid and u.email =: em";
+		TypedQuery<User> query = em.createQuery(jpql, User.class);
+		query.setParameter("uid", userid);
+		query.setParameter("em", email);
+		try {
+			User foundUser = query.getSingleResult();
+			return foundUser;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
 }

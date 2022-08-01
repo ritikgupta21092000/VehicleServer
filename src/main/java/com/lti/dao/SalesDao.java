@@ -22,4 +22,6 @@ public interface SalesDao {
 	List<SalesDto> userApprovedApplications(int personalDetailId);
 	
 	List<SalesDto> userRejectedApplications(int personalDetailId);
+	
+	List<SalesDto> findEmi(int personalDetailId);
 }

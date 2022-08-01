@@ -89,4 +89,10 @@ public class SalesServiceImpl implements SalesService {
 		return salesDao.userAllApplications(personalDetails.getApplicantId());
 	}
 
+	@Override
+	public List<SalesDto> findEmi(int userId) {
+		PersonalDetails personalDetails = personalDetailsDao.findDetailByUserId(userId);
+		return salesDao.findEmi(personalDetails.getApplicantId());
+	}
+
 }
