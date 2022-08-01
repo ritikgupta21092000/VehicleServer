@@ -6,6 +6,19 @@ import com.lti.dto.SalesDto;
 import com.lti.entity.Sales;
 
 public interface SalesService {
-	 List<Sales> displaySales();
+
+	Sales addSales(Sales sales);
+
+	List<SalesDto> displaySales();
+
+	int updateOrReject(int salesId, String status, String message);
+
+	List<SalesDto> rejectedApplications();
+	
+	List<SalesDto> userAllApplications(int userId);
+
+	List<SalesDto> userApprovedApplications(int userId);
+
+	List<SalesDto> userRejectedApplications(int userId);
 
 }

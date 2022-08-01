@@ -7,12 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Transient;
 
 @Entity
 public class Document {
 	@Id
-	@SequenceGenerator(name = "doc_seq", initialValue = 3001, allocationSize = 1)
-	@GeneratedValue(generator = "doc_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "document_seq", initialValue = 3001, allocationSize = 1)
+	@GeneratedValue(generator = "document_seq", strategy = GenerationType.SEQUENCE)
 	int documentId;
 	
 	String aadharUrl;
@@ -20,9 +21,22 @@ public class Document {
 	String photoUrl;
 	String sixMonthSalaryUrl;
 	
+	@Transient
+	int personalDetailsId;
+	
 	@OneToOne
 	@JoinColumn(name = "applicant_id")
 	PersonalDetails personalDetails;
+	
+	
+
+	public int getPersonalDetailsId() {
+		return personalDetailsId;
+	}
+
+	public void setPersonalDetailsId(int personalDetailsId) {
+		this.personalDetailsId = personalDetailsId;
+	}
 
 	public int getDocumentId() {
 		return documentId;

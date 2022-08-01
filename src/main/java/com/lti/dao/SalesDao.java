@@ -7,5 +7,19 @@ import com.lti.entity.Sales;
 
 public interface SalesDao {
 	
-	List<Sales> displaySales();
+	List<SalesDto> displaySales();
+
+	Sales addOrUpdateSales(Sales sales);
+	
+	Sales findPersonalDetailBySaleId(int saleId);
+	
+	int updateOrReject(int salesId, String status);
+	
+	List<SalesDto> rejectedApplications();
+	
+	List<SalesDto> userAllApplications(int personalDetailId);
+	
+	List<SalesDto> userApprovedApplications(int personalDetailId);
+	
+	List<SalesDto> userRejectedApplications(int personalDetailId);
 }

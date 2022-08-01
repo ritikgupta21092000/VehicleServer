@@ -14,6 +14,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "vh_personaldetails")
 public class PersonalDetails {
@@ -55,6 +57,7 @@ public class PersonalDetails {
 	//Sales sales;
 	List<Sales> sales;
 
+	@JsonIgnore
 	public List<Sales> getSales() {
 		return sales;
 	}
@@ -63,6 +66,7 @@ public class PersonalDetails {
 		this.sales = sales;
 	}
 
+	@JsonIgnore
 	public Document getDocument() {
 		return document;
 	}
@@ -143,6 +147,7 @@ public class PersonalDetails {
 		this.pincode = pincode;
 	}
 
+	@JsonIgnore
 	public User getUser() {
 		return user;
 	}

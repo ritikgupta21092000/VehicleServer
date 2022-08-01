@@ -8,4 +8,6 @@ public interface PersonalDetailsDao {
 	PersonalDetails addPersonalDetails(PersonalDetails personalDetails);
 	PersonalDetails findDetailsByApplicantId(int applicantId );
 	
+	PersonalDetails findDetailByUserId(int userId);
+	
 }

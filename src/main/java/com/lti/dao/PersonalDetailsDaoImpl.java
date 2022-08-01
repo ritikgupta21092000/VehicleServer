@@ -2,6 +2,7 @@ package com.lti.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -24,6 +25,14 @@ public class PersonalDetailsDaoImpl implements PersonalDetailsDao {
 	@Override
 	public PersonalDetails findDetailsByApplicantId(int applicantId) {
 		return em.find(PersonalDetails.class, applicantId);
+	}
+
+	@Override
+	public PersonalDetails findDetailByUserId(int userId) {
+		String jpql = "select p from PersonalDetails p where p.user.userId=:uid";
+		TypedQuery<PersonalDetails> query = em.createQuery(jpql, PersonalDetails.class);
+		query.setParameter("uid", userId);
+		return query.getSingleResult();
 	}
 	
 
