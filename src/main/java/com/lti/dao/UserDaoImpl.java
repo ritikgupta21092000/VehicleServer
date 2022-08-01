@@ -61,7 +61,7 @@ public class UserDaoImpl implements UserDao {
 		query.setParameter("pid",password);
 		query.setParameter("uid",userId);
 		return query.executeUpdate();
-	
+	}
 
 	@Override
 	public User findByUserIdAndEmail(int userid, String email) {

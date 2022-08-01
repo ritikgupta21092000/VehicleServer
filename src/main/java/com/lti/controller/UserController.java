@@ -59,7 +59,7 @@ public class UserController {
 	public int forgotPassword(@PathVariable int userId, @PathVariable String password) {
 		System.out.println(userId);
 		return userService.forgotPassword(userId, password);
-			
+	}
 
 	
 	@RequestMapping(value = "/checkUserId/{userId}/{email}", method = RequestMethod.GET)
