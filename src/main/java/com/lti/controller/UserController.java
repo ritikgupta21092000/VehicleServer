@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,6 +51,14 @@ public class UserController {
 			}
 		}
 		return map;
+	}
+	//http://localhost:9090/users/forgotPassword
+	@RequestMapping(value = "/forgotPassword/{userId}/{password}", method = RequestMethod.GET)
+	@ResponseBody
+	public int forgotPassword(@PathVariable int userId, @PathVariable String password) {
+		System.out.println(userId);
+		return userService.forgotPassword(userId, password);
+			
 	}
 
 }

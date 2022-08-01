@@ -31,4 +31,10 @@ public class UserServiceImpl implements UserService {
 		return userDto;
 	}
 
+	public int forgotPassword(int userId, String password) {
+		return userDao.forgotPassword(userId, password);
+		
+		
+	}
+
 }
