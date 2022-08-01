@@ -20,5 +20,7 @@ public interface SalesService {
 	List<SalesDto> userApprovedApplications(int userId);
 
 	List<SalesDto> userRejectedApplications(int userId);
+	
+	List<SalesDto> findEmi(int userId);
 
 }

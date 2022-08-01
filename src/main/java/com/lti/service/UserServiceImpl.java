@@ -31,10 +31,25 @@ public class UserServiceImpl implements UserService {
 		return userDto;
 	}
 
+
 	public int forgotPassword(int userId, String password) {
 		return userDao.forgotPassword(userId, password);
 		
 		
+
+	@Override
+	public boolean checkUserId(int userId, String email) {
+		User user = userDao.findByUserIdAndEmail(userId, email);
+		if (user == null) {
+			return false;
+		} else {
+			String text = "Dear " + user.getFirstName() + " " + user.getLastName() + "\n\n Below is the Reset Password Link \n\n http://localhost:4200/forgotPassword/" + user.getUserId();
+			String subject = "Reset Password!";
+			emailService.sendMail(email, text, subject);
+			System.out.println("Email Sent.");
+			return true;
+		}
+
 	}
 
 }
