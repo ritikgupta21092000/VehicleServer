@@ -1,5 +1,7 @@
 package com.lti.service;
 
+import java.util.List;
+
 import com.lti.dto.UserDto;
 import com.lti.entity.User;
 
@@ -11,5 +13,7 @@ public interface UserService {
 
 	
 	boolean checkUserId(int userId, String email);
+	
+	List<User> viewAllUsers();
 
 }

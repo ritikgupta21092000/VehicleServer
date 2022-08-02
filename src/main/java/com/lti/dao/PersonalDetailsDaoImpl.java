@@ -32,7 +32,14 @@ public class PersonalDetailsDaoImpl implements PersonalDetailsDao {
 		String jpql = "select p from PersonalDetails p where p.user.userId=:uid";
 		TypedQuery<PersonalDetails> query = em.createQuery(jpql, PersonalDetails.class);
 		query.setParameter("uid", userId);
-		return query.getSingleResult();
+		try {
+			PersonalDetails personalDetails = query.getSingleResult();
+			return personalDetails;
+		} catch (Exception e) {
+			return null;
+		}
+		
+		
 	}
 	
 

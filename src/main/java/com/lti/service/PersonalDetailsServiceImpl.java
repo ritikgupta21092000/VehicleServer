@@ -32,4 +32,9 @@ public class PersonalDetailsServiceImpl implements PersonalDetailsService {
 		return p1;
 	}
 
+	@Override
+	public PersonalDetails findPersonalDetailsByUserId(int userId) {
+		return personalDetailsDao.findDetailByUserId(userId);
+	}
+
 }

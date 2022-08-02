@@ -6,6 +6,8 @@ import com.lti.entity.PersonalDetails;
 public interface PersonalDetailsService {
 	
 	PersonalDetails addPersonalDetails(PersonalDetails personalDetails);
-	PersonalDetails findDteailsByApplicantId(int applicantId );
+	PersonalDetails findDteailsByApplicantId(int applicantId);
+	
+	PersonalDetails findPersonalDetailsByUserId(int userId);
 
 }

@@ -1,5 +1,7 @@
 package com.lti.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -50,6 +52,11 @@ public class UserServiceImpl implements UserService {
 			return true;
 		}
 
+	}
+
+	@Override
+	public List<User> viewAllUsers() {
+		return userDao.viewAllUsers();
 	}
 
 }

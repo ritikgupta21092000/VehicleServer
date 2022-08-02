@@ -1,5 +1,7 @@
 package com.lti.dao;
 
+import java.util.List;
+
 import com.lti.dto.UserDto;
 import com.lti.entity.User;
 
@@ -11,5 +13,7 @@ public interface UserDao {
 	int forgotPassword(int userId,String password);
 	
 	User findByUserIdAndEmail(int userid, String email);
+	
+	List<User> viewAllUsers();
 
 }

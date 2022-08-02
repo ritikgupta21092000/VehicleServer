@@ -1,6 +1,7 @@
 package com.lti.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,6 +68,12 @@ public class UserController {
 	public boolean checkUserId(@PathVariable int userId, @PathVariable String email) {
 		return userService.checkUserId(userId, email);
 
+	}
+	
+	@RequestMapping(value = "/viewAllUsers", method = RequestMethod.GET)
+	@ResponseBody
+	public List<User> viewAllUsers() {
+		return userService.viewAllUsers();
 	}
 
 }

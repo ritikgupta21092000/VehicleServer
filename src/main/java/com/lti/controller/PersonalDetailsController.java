@@ -32,4 +32,10 @@ public class PersonalDetailsController {
 	public PersonalDetails searchPersonaldetailsById(@PathVariable int applicantId) {
 		return personalDetailsService.findDteailsByApplicantId(applicantId);
 	}
+	
+	@RequestMapping(value = "/checkPersonalDetails/{userId}")
+	@ResponseBody
+	public PersonalDetails findPersonalDetailsByUserId(@PathVariable int userId) {
+		return personalDetailsService.findPersonalDetailsByUserId(userId);
+	}
 }

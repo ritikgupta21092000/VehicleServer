@@ -1,5 +1,8 @@
 package com.lti.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -75,6 +78,12 @@ public class UserDaoImpl implements UserDao {
 		} catch (Exception e) {
 			return null;
 		}
+	}
+
+	public List<User> viewAllUsers() {
+		String jpql = "select u from User u";
+		TypedQuery<User> query = em.createQuery(jpql, User.class);
+		return query.getResultList();
 	}
 
 }

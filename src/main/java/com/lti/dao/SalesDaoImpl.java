@@ -202,43 +202,51 @@ public class SalesDaoImpl implements SalesDao {
 
 	@Override
 	public List<SalesDto> userAllApplications(int personalDetailId) {
-		String jpql = "select s,l,p,d,v from Sales s join LoanDetails l on s.loanDetails.loanId=l.loanId join PersonalDetails p on s.personalDetails.applicantId=p.applicantId join Document d on p.applicantId=d.personalDetails.applicantId join Vehicles v on s.vehicles.vehicleId=v.vehicleId where s.personalDetails.applicantId=:aid";
-		TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
-		query.setParameter("aid", personalDetailId);
-		List<Object[]> allObjects = query.getResultList();
+		System.out.println("Inside");
 		List<SalesDto> foundSales = new ArrayList<>();
-		SalesDto salesDto = null;
-		for (Object[] obj : allObjects) {
-			Sales s = (Sales) obj[0];
-			LoanDetails l = (LoanDetails) obj[1];
-			PersonalDetails p = (PersonalDetails) obj[2];
-			Document d = (Document) obj[3];
-			Vehicles v = (Vehicles) obj[4];
-			salesDto = new SalesDto();
-			salesDto.setSalesId(s.getSalesId());
-			salesDto.setLoanId(l.getLoanId());
-			salesDto.setApplicantId(p.getApplicantId());
-			salesDto.setDocumentId(d.getDocumentId());
-			salesDto.setVehicleId(v.getVehicleId());
-			salesDto.setFirstName(p.getFirstName());
-			salesDto.setAge(p.getAge());
-			salesDto.setMobileNo(p.getMobileNo());
-			salesDto.setEmail(p.getEmail());
-			salesDto.setAadharUrl(d.getAadharUrl());
-			salesDto.setPanUrl(d.getPanUrl());
-			salesDto.setPhotoUrl(d.getPhotoUrl());
-			salesDto.setSixMonthSalaryUrl(d.getSixMonthSalaryUrl());
-			salesDto.setLoanAmount(l.getLoanAmount());
-			salesDto.setLoanTenure(l.getLoanTenure());
-			salesDto.setRateOfInterest(l.getRateOfInterest());
-			salesDto.setEmi(l.getEmi());
-			salesDto.setVehicleMake(v.getVehicleMake());
-			salesDto.setVehicleModel(v.getVehicleModel());
-			salesDto.setPrice(v.getPrice());
-			salesDto.setIsLoanApproved(s.getIsLoanApproved());
-			foundSales.add(salesDto);
+		String jpql = "select s,l,p,d,v from Sales s join LoanDetails l on s.loanDetails.loanId=l.loanId join PersonalDetails p on s.personalDetails.applicantId=p.applicantId join Document d on p.applicantId=d.personalDetails.applicantId join Vehicles v on s.vehicles.vehicleId=v.vehicleId where s.personalDetails.applicantId=:aid";
+		
+		try {
+			TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+			query.setParameter("aid", personalDetailId);
+			List<Object[]> allObjects = query.getResultList();
+			
+			SalesDto salesDto = null;
+			for (Object[] obj : allObjects) {
+				Sales s = (Sales) obj[0];
+				LoanDetails l = (LoanDetails) obj[1];
+				PersonalDetails p = (PersonalDetails) obj[2];
+				Document d = (Document) obj[3];
+				Vehicles v = (Vehicles) obj[4];
+				salesDto = new SalesDto();
+				salesDto.setSalesId(s.getSalesId());
+				salesDto.setLoanId(l.getLoanId());
+				salesDto.setApplicantId(p.getApplicantId());
+				salesDto.setDocumentId(d.getDocumentId());
+				salesDto.setVehicleId(v.getVehicleId());
+				salesDto.setFirstName(p.getFirstName());
+				salesDto.setAge(p.getAge());
+				salesDto.setMobileNo(p.getMobileNo());
+				salesDto.setEmail(p.getEmail());
+				salesDto.setAadharUrl(d.getAadharUrl());
+				salesDto.setPanUrl(d.getPanUrl());
+				salesDto.setPhotoUrl(d.getPhotoUrl());
+				salesDto.setSixMonthSalaryUrl(d.getSixMonthSalaryUrl());
+				salesDto.setLoanAmount(l.getLoanAmount());
+				salesDto.setLoanTenure(l.getLoanTenure());
+				salesDto.setRateOfInterest(l.getRateOfInterest());
+				salesDto.setEmi(l.getEmi());
+				salesDto.setVehicleMake(v.getVehicleMake());
+				salesDto.setVehicleModel(v.getVehicleModel());
+				salesDto.setPrice(v.getPrice());
+				salesDto.setIsLoanApproved(s.getIsLoanApproved());
+				foundSales.add(salesDto);
+			}
+			return foundSales;
+		} catch (Exception e) {
+			return foundSales;
 		}
-		return foundSales;
+		
 	}
 
 	@Override
