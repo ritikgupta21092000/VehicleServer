@@ -62,6 +62,14 @@ public class VehicleController {
 	public List<Vehicles> getVehiclesByMake(@PathVariable String vehicleMake) {
 		return vehicleService.searchVehicleByMake(vehicleMake);
 	}
+	
+	//http://localhost:9090/vehicles/vehicleModel/Nexon
+	@RequestMapping(value = "/vehicleModel/{vehicleModel}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Vehicles> getVehiclesByModel(@PathVariable String vehicleModel) {
+		return vehicleService.searchVehicleByModel(vehicleModel);
+	}
+	
 }
 
 
